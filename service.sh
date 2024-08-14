@@ -169,12 +169,6 @@ check_audioserver
 }
 
 # check
-for SERVICE in $SERVICES; do
-  if ! pidof $SERVICE; then
-    $SERVICE &
-    PID=`pidof $SERVICE`
-  fi
-done
 #PROC=com.oplus.persist.multimedia
 PROC=com.oplus.audiox
 killall $PROC
