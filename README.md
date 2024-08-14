@@ -40,10 +40,8 @@
 ## Support & Bug Report
 - https://t.me/androidryukimodsdiscussions/2618
 
-## Tested on
-- Android 14 LineageOS ROM
-
 ## Credits and Contributors
+- @HuskyDG
 - https://t.me/viperatmos
 - https://t.me/androidryukimodsdiscussions
 - You can contribute ideas about this Magisk Module here: https://t.me/androidappsportdevelopment
