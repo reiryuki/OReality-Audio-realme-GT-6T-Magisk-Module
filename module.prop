@@ -1,8 +1,8 @@
 id=ORealityAudio
 name=OReality Audio realme GT 6T
-version=v0.2
-versionCode=2
+version=v0.3
+versionCode=3
 author=Rei Ryuki the Fixer
-description=An equalizer global type sound effect ported from realme GT 6T (RE606FL1) for any Android 10 and up.
+description=Equalizer global type sound effect ported from realme GT 6T (RE606FL1) for any arm64-v8a or armeabi-v7a architecture, Android 10 (SDK 29) and up.
 
 

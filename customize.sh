@@ -4,9 +4,12 @@ ui_print " "
 # var
 UID=`id -u`
 [ ! "$UID" ] && UID=0
-LIST32BIT=`grep_get_prop ro.product.cpu.abilist32`
-if [ ! "$LIST32BIT" ]; then
-  LIST32BIT=`grep_get_prop ro.system.product.cpu.abilist32`
+ABILIST32=`grep_get_prop ro.product.cpu.abilist32`
+if [ ! "$ABILIST32" ]; then
+  ABILIST32=`grep_get_prop ro.system.product.cpu.abilist32`
+fi
+if [ ! "$ABILIST32" ]; then
+  [ -f /system/lib/libandroid.so ] && ABILIST32=true
 fi
 
 # log
@@ -62,17 +65,17 @@ if [ "$IS64BIT" == true ]; then
   ui_print "- 64 bit architecture"
   ui_print " "
   # 32 bit
-  if [ "$LIST32BIT" ]; then
+  if [ "$ABILIST32" ]; then
     ui_print "- 32 bit library support"
   else
     ui_print "- Doesn't support 32 bit library"
-    rm -rf $MODPATH/armeabi-v7a $MODPATH/x86\
-     $MODPATH/system*/lib $MODPATH/system*/vendor/lib
+    rm -rf $MODPATH/system*/lib\
+     $MODPATH/system*/vendor/lib
   fi
   ui_print " "
 else
   ui_print "- 32 bit architecture"
-  rm -rf `find $MODPATH -type d -name *64*`
+  rm -rf `find $MODPATH/system -type d -name *64*`
   ui_print " "
 fi
 
@@ -422,7 +425,7 @@ fi
 # raw
 FILE=$MODPATH/.aml.sh
 if [ "`grep_prop disable.raw $OPTIONALS`" == 0 ]; then
-  ui_print "- Does not disable Ultra Low Latency playback (RAW)"
+  ui_print "- Does not disable Ultra Low Latency (Raw) playback"
   ui_print " "
 else
   sed -i 's|#u||g' $FILE
