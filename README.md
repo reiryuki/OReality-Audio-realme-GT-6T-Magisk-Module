@@ -32,6 +32,7 @@
 - If you have an issue with your in-built Spatial Audio, then install AOSP Sound Effects Remover also: https://github.com/reiryuki/AOSP-soundfx-Remover-Magisk-Module
 
 ## Optionals
+- https://t.me/ryukinotes/69
 - Global: https://t.me/ryukinotes/35
 - Stream: https://t.me/ryukinotes/52
 
