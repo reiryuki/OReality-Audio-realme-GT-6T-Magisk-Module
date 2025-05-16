@@ -104,10 +104,8 @@ fi
 # grant
 PKG=com.oplus.audiox
 if appops get $PKG > /dev/null 2>&1; then
+  pm grant --all-permissions $PKG
   appops set $PKG WRITE_SETTINGS allow
-  if [ "$API" -ge 31 ]; then
-    pm grant $PKG android.permission.BLUETOOTH_CONNECT
-  fi
   if [ "$API" -ge 30 ]; then
     appops set $PKG AUTO_REVOKE_PERMISSIONS_IF_UNUSED ignore
   fi
@@ -121,11 +119,9 @@ fi
 # grant
 PKG=com.oplus.oreality.audio
 if appops get $PKG > /dev/null 2>&1; then
+  pm grant --all-permissions $PKG
   appops set $PKG WRITE_SETTINGS allow
   appops set $PKG SYSTEM_ALERT_WINDOW allow
-  if [ "$API" -ge 31 ]; then
-    pm grant $PKG android.permission.BLUETOOTH_CONNECT
-  fi
   if [ "$API" -ge 30 ]; then
     appops set $PKG AUTO_REVOKE_PERMISSIONS_IF_UNUSED ignore
   fi
